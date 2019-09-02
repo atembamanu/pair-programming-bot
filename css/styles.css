@@ -1,0 +1,44 @@
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.uProfile-image {
+    height: 100px;
+    widows: 100px;
+    border-radius: 50%
+}
+
+.uProfile-name {
+    color: green;
+    font-weight: bolder
+}
+
+.card-body {
+    font-size: 24px;
+}
+
+.card-title {
+    font-size: 26px;
+}
+
+#time {
+    padding-top: 100px;
+
+}
+
+button.text-white {
+    font-weight: bolder
+}
+
+.modal {
+    font-size: 20px;
+}
+
+.modal-footer>button {
+    text-transform: uppercase;
+    font-weight: bolder
+}
+
+#skillModelLabel {
+    font-size: 30px;
+}
