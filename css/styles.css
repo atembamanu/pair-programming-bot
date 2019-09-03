@@ -42,3 +42,13 @@ button.text-white {
 #skillModelLabel {
     font-size: 30px;
 }
+footer {
+    height: 50px;
+}
+.why-skills {
+    text-align: center;    
+    width: 100%;
+}
+#skilltest {
+    display: none;
+}
