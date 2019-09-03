@@ -1,3 +1,19 @@
+.btn-moringa{
+	background-color:#8e9847;
+	color: white;
+}
+#sighnup{
+	display: none;
+}
+.form-container{
+	padding: 20px;
+}
+.account{
+	margin: 50px;
+	padding: 30px;
+}
+.form-group{
+	padding-top: 10px;
 body {
     font-family: 'Darker Grotesque', sans-serif;
 }
