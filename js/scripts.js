@@ -1,4 +1,4 @@
-let countDownDate = new Date("Sep 3, 2019 23:25:19").getTime();
+let countDownDate = new Date("Sep 3, 2019 8:50:10").getTime();
 let x = setInterval(function () {
   let now = new Date().getTime();
 
@@ -18,7 +18,7 @@ let x = setInterval(function () {
   })
 
   console.log(distance)
-  if (minutes == 5) {
+  if (days == 0 && hours == 0 && minutes == 5 && seconds == 0) {
     $('#skillSetModal').modal('show');
   }
 
