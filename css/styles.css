@@ -8,10 +8,64 @@
 .form-container{
 	padding: 20px;
 }
+#skilltest {
+    display: none;
+}
 .account{
 	margin: 50px;
 	padding: 30px;
 }
 .form-group{
-	padding-top: 10px;
+    padding-top: 10px;
+}
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.uProfile-image {
+    height: 100px;
+    widows: 100px;
+    border-radius: 50%
+}
+
+.uProfile-name {
+    color: green;
+    font-weight: bolder
+}
+
+.card-body {
+    font-size: 24px;
+}
+
+.card-title {
+    font-size: 26px;
+}
+
+#time {
+    padding-top: 100px;
+
+}
+
+button.text-white {
+    font-weight: bolder
+}
+
+.modal {
+    font-size: 20px;
+}
+
+.modal-footer>button {
+    text-transform: uppercase;
+    font-weight: bolder
+}
+
+#skillModelLabel {
+    font-size: 30px;
+}
+footer {
+    height: 50px;
+}
+.why-skills {
+    text-align: center;    
+    width: 100%;
 }
