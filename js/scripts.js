@@ -1,3 +1,20 @@
+$(document).ready(function () {
+
+
+	$("button#sinup").click(function () {
+		$("form#sighnin").hide(2500)
+		$("form#sighnup").show(2500);
+		$("form#sighnup").slideDown(200);
+	})
+
+	$("button#sininup").click(function () {
+		$("form#sighnup").hide(2500);
+		$("form#sighnin").slideDown(200);
+	})
+	$("button#sin").click(function(){
+		$("#skills-modal").modal("show");
+		
+	})
 let countDownDate = new Date("Sep 3, 2019 8:50:10").getTime();
 let x = setInterval(function () {
   let now = new Date().getTime();
@@ -28,3 +45,15 @@ let x = setInterval(function () {
 
   }
 }, 1000);
+$('#skills-modal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes    
+    var modal = $(this)
+    modal.find('.modal-body input').val(recipient)
+});
+
+$("img#proceed").click(function () {
+
+    $("#skilltest").show(2500);
+    $(".why-skills").hide(2500);
+})
