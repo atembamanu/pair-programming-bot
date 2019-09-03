@@ -12,7 +12,9 @@ $(document).ready(function () {
 		$("form#sighnin").slideDown(200);
 	})
 	$("button#sin").click(function(){
-		$("#skills-modal").modal("show");
+    $("#skills-modal").modal("show");
+    $('#enrollModal').modal('hide');
+    
 		
 	})
 let countDownDate = new Date("Sep 3, 2019 8:50:10").getTime();
@@ -56,4 +58,10 @@ $("img#proceed").click(function () {
 
     $("#skilltest").show(2500);
     $(".why-skills").hide(2500);
+});
+
+$('.enroll').click(function(){
+  $('#enrollModal').modal('show');
 })
+
+});
