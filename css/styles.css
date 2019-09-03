@@ -8,12 +8,16 @@
 .form-container{
 	padding: 20px;
 }
+#skilltest {
+    display: none;
+}
 .account{
 	margin: 50px;
 	padding: 30px;
 }
 .form-group{
-	padding-top: 10px;
+    padding-top: 10px;
+}
 body {
     font-family: 'Darker Grotesque', sans-serif;
 }
@@ -64,7 +68,4 @@ footer {
 .why-skills {
     text-align: center;    
     width: 100%;
-}
-#skilltest {
-    display: none;
 }
