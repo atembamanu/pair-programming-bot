@@ -217,4 +217,28 @@ $('.enroll').click(function(){
         }
 })
 
+    } else {
+      if (login_email == "" || login_email == null) {
+        $("input#login_email").css("border-color", "red");
+        $('#error1').text("Email required");
+        $('#error1').css("color", "red");
+        return false;
+      }
+      else {
+        $("input#login_email").css("border-color", "green")
+        $('#error1').text("");
+      }
+      if (login_password == "" || login_password == null) {
+        $("input#login_password").css("border-color", "red");
+        $('#error2').text("Password required");
+        $('#error2').css("color", "red");
+
+      }
+      else {
+        $("input#login_password").css("border-color", "green")
+        $('#error2').text("");
+
+      }
+    }
+  });
 });
