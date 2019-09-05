@@ -168,6 +168,53 @@ $('.enroll').click(function(){
     }
   });
 
+  $('#userlogin').click(function () {
+
+    let login_password = $('#login_password').val().trim();
+    let login_email = $('#login_email').val().trim();
+    if (login_password != '' && login_email != '') {
+      $.ajax({
+        url: "login.php",
+        method: "POST",
+        data: {
+          login_email: login_email,
+          login_password: login_password
+        },
+        success: function (reponse) {
+          if (reponse == 0) {
+            
+            $('#modal_alert').html('<div class="alert alert-success ms-alert" role="alert">' +
+              '<h5><strong>Login Successfull</strong></h5>' +
+              '</div>');
+            $(".ms-alert").delay(1500).slideUp('slow', function () {
+
+              $('#modal_alert').hide('slow', function(){
+                $('#loginModal').modal('hide');
+                location.reload();
+              });
+            });
+            
+            window.reload();
+
+          } else if (reponse == 1) {
+
+            $('#modal_alert').html('<div class="alert alert-danger ms-alert" role="alert">' +
+              '<h5><strong>Invalid Credentials</strong></h5>' +
+              '</div>');
+            $(".ms-alert").delay(2500).slideUp('slow', function () {
+
+            });
+          } else {
+            $('#loginModal').modal('hide');
+            $('#modal_alert').html('<div class="alert alert-danger ms-alert" role="alert">' +
+              '<h5><strong>Whoops!, we\'ve lost connection. Try again later</strong></h5>' +
+              '</div>');
+            $(".ms-alert").delay(2500).slideUp('slow', function () {
+            });
+
+            
+          }
+        }
 })
 
 });
