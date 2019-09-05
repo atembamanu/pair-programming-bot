@@ -70,6 +70,64 @@ $('.enroll').click(function(){
     let passion = $('#passion').val();
     let uclass = $('#class').val();
     let password = $('#password').val();
+    if (name != '' && email != '' && passion != '' && uclass != '' && password != '') {
+      $.ajax({
+        url: "register.php",
+        method: "POST",
+        data: {
+          name: name,
+          email: email,
+          passion: passion,
+          uclass: uclass,
+          password: password
+        },
+        success: function (data) {
+          switch (data) {
+            case '1':
+              $('#enrollModal').modal('hide');
+              $('#m_alert').html('<div class="alert alert-warning msucess-alert" role="alert">' +
+                '<h5><strong>You are already enrolled. Please Login</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(2500).slideUp('slow', function () {
+                $('#m_alert').hide('slow', function () {
+                  $('#loginModal').modal('show');
+                });
+              });
+
+              break;
+            case '2':
+              $('#enrollModal').modal('hide');
+              $('#m_alert').html('<div class="alert alert-success msucess-alert" role="alert">' +
+                '<h5><strong>You have been enrolled successfully. Proceed to login.</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(2500).slideUp('slow', function () {
+                $('#m_alert').hide('slow', function () {
+                  $('#loginModal').modal('show');
+                });
+
+              });
+              break;
+            case '3':
+              $('#enrollModal').modal('hide');
+              $('#m_alert').html('<div class="alert alert-danger msucess-alert" role="alert">' +
+                '<h5><strong>Sorry, Error occured. Please try again later.</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(2500).slideUp('slow', function () {
+              });
+              break;
+            default:
+              $('#enrollModal').modal('hide');
+              $('#m_alert').html('<div class="alert alert-danger msucess-alert" role="alert">' +
+                '<h5><strong>Sorry, We could not enroll you at this time. Try gain after some time</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(2500).slideUp('slow', function () {
+              });
+              break;
+
+          }
+        }
+      })
+
 })
 
 });
