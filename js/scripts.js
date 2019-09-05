@@ -62,6 +62,14 @@ $("img#proceed").click(function () {
 
 $('.enroll').click(function(){
   $('#enrollModal').modal('show');
+  });
+
+  $('#create_account').click(function () {
+    let name = $('#name').val();
+    let email = $('#email').val();
+    let passion = $('#passion').val();
+    let uclass = $('#class').val();
+    let password = $('#password').val();
 })
 
 });
