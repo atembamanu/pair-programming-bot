@@ -241,4 +241,12 @@ $('.enroll').click(function(){
       }
     }
   });
+  $("button#ulogin").click(function () {
+    $("#enrollModal").modal('hide');
+    $("#loginModal").modal('show');
+  });
+  $("button#usignup").click(function () {
+    $("#enrollModal").modal('show');
+    $("#loginModal").modal('hide');
+  });
 });
