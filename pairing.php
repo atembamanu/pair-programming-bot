@@ -1,3 +1,13 @@
+<?php 
+require_once('dbConnect.php');
+session_start();
+if(!isset($_SESSION['id'])){
+    header("Location : index.php");
+}
+$sql = 'SELECT * FROM webappUsers WHERE webappUser_id = " '.$_SESSION['id'].'" ';
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
