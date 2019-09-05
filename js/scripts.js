@@ -128,6 +128,46 @@ $('.enroll').click(function(){
         }
       })
 
+    } else {
+      if (name == "" || name == null) {
+        $("input#name").css("border-color", "red")
+        return false;
+      } else { $("input#name").css("border-color", "green") }
+      // validate user-email
+      if (email == "") {
+        $("input#email").css("border-color", "red");
+        return false;
+      } else { $("input#email").css("border-color", "green") }
+      // validate user password
+      if (password == "" || password == null) {
+        $("input#password").css("border-color", "red")
+        return false;
+      }
+      else {
+        if (password.length < 8) {
+          $("input#password").css("border-color", "red")
+          $('#error').text("Should be more than 8 characters long");
+          $('#error').css("color", "red")
+          return false;
+        } else {
+          $("input#password").css("border-color", "green")
+        }
+      }
+      // validate passion
+      if (passion == "" || passion == null) {
+        $("input#passion").css("border-color", "red")
+        return false;
+      }
+      else { $("input#passion").css("border-color", "green") }
+      // validate module
+      if (uclass == "" || uclass == null) {
+        $("input#module").css("border-color", "red")
+        return false;
+      }
+      else { $("input#module").css("border-color", "green") }
+    }
+  });
+
 })
 
 });
