@@ -272,5 +272,57 @@ $("form#sighnup").hide(2500);
                 }, function(){
                         Cookies.set('pairingbot_remember_me', 'pairs', { expires: 105, path: '/' });
                 }); 
+}else{
+    
+    populateSkillSet();
+}
+    
+  function populateSkillSet(){
+        
+         let gArray = [];
+          let skillsArray = ["Control Structures", "Markdown","Events", "The DOM", "Prototypes", "Contructors","Objects", "Git Colaboration"];
+         for (let i=0, tempskills = skillsArray; i<4; i++){
+             let skill = Math.floor(Math.random()* (tempskills.length));
+            
+             let gItem  = skillsArray[skill];
+            tempskills.splice(skill, 1);
+             gArray.push(gItem);
+         }
+             let bArray = skillsArray.filter(function(e) {
+              return gArray.indexOf(e) == -1;
+            });
+      
+        
+            
+              gArray.forEach(function(mgood){
+               $("ul#goodAt").append("<li><span class='goodskill'>" + mgood + "</span></li>");
+              
+          }); 
+        
+        
+          bArray.forEach(function(mbad){
+               $("ul#badAt").append("<li><span class='improveskill'>" + mbad + "</span></li>");
+              
+          }); 
+        
+          
+          
+          
+                gArray.forEach(function(pairgood){
+               $("ul#pairbadAt").append("<li><span class='goodskill'>" + pairgood + "</span></li>");
+              
+          }); 
+        
+        
+          bArray.forEach(function(pairbad){
+               $("ul#pairgoodAt").append("<li><span class='improveskill'>" + pairbad + "</span></li>");
+              
+          });
+              
+         
+          
+        };
+    
+    $('#skill1SetSubmit').click(function(){
 }
 });
