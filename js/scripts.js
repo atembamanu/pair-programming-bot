@@ -63,7 +63,26 @@ $("form#sighnup").hide(2500);
     let uclass = $('#class').val();
     let password = $('#password').val();
 
-    if (name != '' && email != '' && passion != '' && uclass != '' && password != '') {
+     let image_name = $('#image').val();  
+          
+    if (name !== '' && email !== '' && passion !== '' && uclass !== '' && password !== '') {
+         if(image_name === '')  
+           {  
+                $('#img_status').css("color", "red");
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                    $('#img_status').text("Invalid image file");
+                     $('#img_status').css("color", "red"); 
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+        
       $.ajax({
         url: "register.php",
         method: "POST",
