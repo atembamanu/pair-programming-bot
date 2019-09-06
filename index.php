@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+require_once("dbConnect.php");
 
 if(isset($_SESSION['id'])){
     header("Location: pairing.php");
@@ -9,7 +9,6 @@ if(isset($_SESSION['id'])){
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,7 @@ if(isset($_SESSION['id'])){
                     </div>
                     <div class="form-group">
                     <select name="class" id="class" class="form-control">
-                        <?php 
+                      <?php 
                         require_once('dbConnect.php');
                         $class_result = $conn->query("SELECT * FROM  classes");
                         while($rows = $class_result->fetch_assoc() ){
@@ -68,11 +67,12 @@ if(isset($_SESSION['id'])){
                     </div>
                    
                     <div class="form-group">
-                        <label for="fileupload"> Select an image to upload</label>
-                        <input type="file" placeholder="Upload Your image" />
+                        <label for="fileupload" id="img_status"> Select profile image </label>
+                       <input type="file" name="image" id="image" />  
+             
                     </div>
                     <div class="form-group text-center">
-                        <button id="ulogin" class="btn btn-warning text-white">LOGIN INSTEAD</button>
+                        <button id="ulogin" class="btn bg-orange">LOGIN INSTEAD</button>
                         <button class="btn btn-moringa text-white" type="submit" name="register"
                             id="create_account">CONTINUE</button>
                     </div>
@@ -103,7 +103,7 @@ if(isset($_SESSION['id'])){
                     </div>
                     <a href="#">Forgot your password?</a>
                     <div class="form-group text-center">    
-                        <button id="usignup" class="btn btn-warning text-white">CREATE ACCOUNT</button>
+                        <button id="usignup" class="btn bg-orange">CREATE ACCOUNT</button>
                         <button id="userlogin" class="btn btn-moringa text-white">CONTINUE</button>
 
                     </div>
@@ -114,56 +114,66 @@ if(isset($_SESSION['id'])){
     <!-- end of enroll modal -->
     <!-- start of landing page -->
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
+    <nav class="navbar bg-light navbar-light fixed-top transparent">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="assets/logo.png">
             </a>
             <a class="navbar-brand" href="#"></a>
-            <a class="btn btn-primary enroll" href="#" id="change_me">Enroll</a>
+            <a class="btn btn-primary enroll custom" href="#" id="change_me">Enroll</a>
         </div>
     </nav>
-    <div class="form-group" id="m_alert">
 
-    </div>
 
     <!-- Masthead -->
-    <header class="masthead text-white text-center">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row text-dark">
-                <div class="col-xl-9 mx-auto">
-                    <h1 class="mt-5 mb-5">Pair Programming, the future <br> to effective programming education.</h1>
+    <header class="masthead text-white">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                     <div class="form-group" id="m_alert">
+
+                    </div>
                 </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <button type="submit" class="btn btn-lg btn-primary mb-5 enroll">Enroll Now</button>
-                 
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" id="banner">
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 pb-5 mb-5 pt-5 bg-transparent">
+                                <h3 class="font-weight-bold text-dark pt-5">Pair Programming, the future to effective programming education.</h3>
+                                <button type="submit" class="btn btn-lg btn-primary mt-4 mb-3 enroll custom">Enroll
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Icons Grid -->
-    <section class="bg-light text-center">
+    <section class="btn-moringa pb-5 text-center">
         <div class="container">
             <h2 class="pt-5 font-weight-bold">Pair Programming Automated</h2>
             <div class="row mt-5">
                 <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <i class="fa fa-sign-in fa-5x mb-3"></i>
                         <h3>Step 1</h3>
                         <p class="lead mb-0">Click on the enroll now button and sign up/ sign in.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <i class="fa fa-check fa-5x mb-3"></i>
                         <h3>Step 2</h3>
                         <p class="lead mb-0">Take the assessment to determine your skill level.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="mx-auto mb-0 mb-lg-3">
+                    <div class="mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <i class="fa fa-clock fa-5x mb-3"></i>
                         <h3>Step 3</h3>
                         <p class="lead mb-0">Wait to be paired!</p>
@@ -191,31 +201,12 @@ if(isset($_SESSION['id'])){
 
 
     <!-- Footer -->
-    <footer class="footer bg-light">
+    <footer class="footer bg-orange">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 h-100 text-center text-lg-center my-auto">
-                    <p class="text-muted small pt-3">&copy; Pair Programming Bot 2019. All Rights Reserved.</p>
+                    <p class="small pt-3">&copy; Pair Programming Bot 2019. All Rights Reserved.</p>
                 </div>
-                <!-- <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item mr-3">
-                            <a href="#">
-                                <i class="fab fa-facebook fa-2x fa-fw"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item mr-3">
-                            <a href="#">
-                                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-instagram fa-2x fa-fw"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </footer>
@@ -226,6 +217,7 @@ if(isset($_SESSION['id'])){
     <!-- start of javascript files -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>

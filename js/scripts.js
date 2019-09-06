@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
   $("b#sininup").click(function () {
 $("form#sighnup").hide(2500);
     $("form#sighnin").slideDown(200);
@@ -29,7 +27,7 @@ $("form#sighnup").hide(2500);
       $('#mins').text(minutes);
       $('#secs').text(seconds);
     })
-    if (days == 0 && hours == 0 && minutes == 5 && seconds == 0) {
+    if (days === 0 && hours === 0 && minutes === 5 && seconds === 0) {
       $('#skillSetModal').modal('show');
     }
 
@@ -62,8 +60,27 @@ $("form#sighnup").hide(2500);
     let passion = $('#passion').val();
     let uclass = $('#class').val();
     let password = $('#password').val();
-
-    if (name != '' && email != '' && passion != '' && uclass != '' && password != '') {
+    
+     let image_name = $('#image').val();  
+          
+    if (name !== '' && email !== '' && passion !== '' && uclass !== '' && password !== '') {
+         if(image_name === '')  
+           {  
+                $('#img_status').css("color", "red");
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                    $('#img_status').text("Invalid image file");
+                     $('#img_status').css("color", "red"); 
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+        
       $.ajax({
         url: "register.php",
         method: "POST",
@@ -72,7 +89,8 @@ $("form#sighnup").hide(2500);
           email: email,
           passion: passion,
           uclass: uclass,
-          password: password
+          password: password,
+          image_name:image_name
         },
         success: function (data) {
           switch (data) {
@@ -160,7 +178,7 @@ $("form#sighnup").hide(2500);
       else { $("input#module").css("border-color", "green") }
     }
   });
-
+  
   $('#userlogin').click(function () {
 
     let login_password = $('#login_password').val().trim();
@@ -242,4 +260,109 @@ $("form#sighnup").hide(2500);
     $("#enrollModal").modal('show');
     $("#loginModal").modal('hide');
   });
+
+  if (Cookies.get('pairingbot_remember_me') == null) {
+
+    $('#skills-modal').modal({
+                        backdrop: 'static',
+                        keyboard: true, 
+                        show: true
+                }, function(){
+                        Cookies.set('pairingbot_remember_me', 'pairs', { expires: 105, path: '/' });
+                }); 
+}else{
+    
+    populateSkillSet();
+}
+    
+  function populateSkillSet(){
+        
+         let gArray = [];
+          let skillsArray = ["Control Structures", "Markdown","Events", "The DOM", "Prototypes", "Contructors","Objects", "Git Colaboration"];
+         for (let i=0, tempskills = skillsArray; i<4; i++){
+             let skill = Math.floor(Math.random()* (tempskills.length));
+            
+             let gItem  = skillsArray[skill];
+            tempskills.splice(skill, 1);
+             gArray.push(gItem);
+         }
+             let bArray = skillsArray.filter(function(e) {
+              return gArray.indexOf(e) == -1;
+            });
+      
+        
+            
+              gArray.forEach(function(mgood){
+               $("ul#goodAt").append("<li><span class='goodskill'>" + mgood + "</span></li>");
+              
+          }); 
+        
+        
+          bArray.forEach(function(mbad){
+               $("ul#badAt").append("<li><span class='improveskill'>" + mbad + "</span></li>");
+              
+          }); 
+        
+          
+          
+          
+                gArray.forEach(function(pairgood){
+               $("ul#pairbadAt").append("<li><span class='goodskill'>" + pairgood + "</span></li>");
+              
+          }); 
+        
+        
+          bArray.forEach(function(pairbad){
+               $("ul#pairgoodAt").append("<li><span class='improveskill'>" + pairbad + "</span></li>");
+              
+          });
+              
+         
+          
+        };
+    
+    $('#skill1SetSubmit').click(function(){
+        $('#s_alert').html('<div class="alert alert-success msucess-alert" role="alert">' +
+                '<h5><strong>Your first skill test was successfully submited. Wait as we analyze your responses.</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(6500).slideUp('slow', function () {
+                
+                    $('#s_alert').html('<div class="alert alert-warning malert" role="alert">' +
+                '<h5><strong>Done analyzing..Fetching Your Pair...Done </br>Happy Pairing Session.</strong></h5>' +
+                '</div>');
+                $(".malert").delay(2500).slideUp('slow', function () {
+                $('#s_alert').hide('slow', function () {
+                    $('.hide_name').show('slow');
+                  populateSkillSet();
+                  
+                });
+
+              });
+        
+    });
+    });
+
+
 });
+
+// Navbar Transition
+(function ($) {
+
+  var navbar = $('.navbar');
+  var lastScrollTop = 0;
+
+  $(window).scroll(function () {
+      var st = $(this).scrollTop();
+      if (st > lastScrollTop) {
+          navbar.removeClass('bg-light').addClass('visible shadow');
+      } 
+      else if(st < lastScrollTop && st < 200) {
+          navbar.removeClass('visible shadow').addClass('bg-light');
+      }
+      else {
+          navbar.removeClass('bg-light').addClass('visible shadow');
+      }
+      lastScrollTop = st;
+  });
+
+})(jQuery);
