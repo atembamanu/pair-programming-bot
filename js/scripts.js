@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
   $("b#sininup").click(function () {
 $("form#sighnup").hide(2500);
     $("form#sighnin").slideDown(200);
@@ -62,7 +60,7 @@ $("form#sighnup").hide(2500);
     let passion = $('#passion').val();
     let uclass = $('#class').val();
     let password = $('#password').val();
-
+    
      let image_name = $('#image').val();  
           
     if (name !== '' && email !== '' && passion !== '' && uclass !== '' && password !== '') {
@@ -180,7 +178,7 @@ $("form#sighnup").hide(2500);
       else { $("input#module").css("border-color", "green") }
     }
   });
-
+  
   $('#userlogin').click(function () {
 
     let login_password = $('#login_password').val().trim();
@@ -363,8 +361,8 @@ $("form#sighnup").hide(2500);
       }
       else {
           navbar.removeClass('bg-light').addClass('visible shadow');
-}
+      }
       lastScrollTop = st;
-});
+  });
 
 })(jQuery);
