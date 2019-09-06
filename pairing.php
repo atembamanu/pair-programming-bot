@@ -22,25 +22,16 @@ $row2 = mysqli_fetch_array($query2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pair Programming Bot</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script>
-    $(document).ready(function() {
-    if (Cookies.get('pairingbot_remember_me') = null) {
-        Cookies.set('pairingbot_remember_me', 'pairs', { expires: 105, path: '/' });
-        $('#skills-modal').modal('show');
-    }
-    });
-    </script>
+    <script src="https://kit.fontawesome.com/71daca51f7.js"></script>
 </head>
 
 <body>
     <!-- start of skillset modal1 -->
-    <div class="modal fade" id="skillSetModal" tabindex="-1" role="dialog" aria-labelledby="skillSetModelLabel"
+    <div class="modal fade" id="skillSetModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="editProfileTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -81,22 +72,22 @@ $row2 = mysqli_fetch_array($query2);
                             <label for="" class="col-form-label text-success" class="skillname">Friday IP</label><br>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="opt2radio" value="1"> 100 - 80%
+                                    <input type="radio" class="form-check-input" name="opt0radio" value="1"> 100 - 80%
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="opt2radio" value="2">80 - 60%
+                                    <input type="radio" class="form-check-input" name="opt0radio" value="2">80 - 60%
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="opt2radio" value="3">60 - 40%
+                                    <input type="radio" class="form-check-input" name="opt0radio" value="3">60 - 40%
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="opt2radio" value="4">Below 40%
+                                    <input type="radio" class="form-check-input" name="opt0radio" value="4">Below 40%
                                 </label>
                             </div>
                         </div>
@@ -179,12 +170,12 @@ $row2 = mysqli_fetch_array($query2);
         <!-- start of skillset modal2 -->
         <div class="modal fade " id="skills-modal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="Modalheader">Skill test</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--    <span aria-hidden="true">&times;</span>-->
                     </button>
                 </div>
                 <div class="modal-body">
@@ -200,10 +191,11 @@ $row2 = mysqli_fetch_array($query2);
                     </div>
                     <div id="skilltest">
                         <h5>Please choose your level of skills in these topics</h5>
+                        <h6 id="errorHandler"></h6>
                         <div class="form-group">
                             <label for="" class="col-form-label text-success skillname">Prototypes</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opt1radio" value="1">
+                                <input class="form-check-input" type="radio" name="opt1radio" checked value="1">
                                 <label class="form-check-label">100-80</label>
                             </div>
 
@@ -224,7 +216,7 @@ $row2 = mysqli_fetch_array($query2);
                         <div class="form-group">
                             <label for="" class="col-form-label text-success skillname">Constructors</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opt2radio" value="1">
+                                <input class="form-check-input" type="radio" name="opt2radio" checked value="1">
                                 <label class="form-check-label">100-80</label>
                             </div>
 
@@ -246,7 +238,7 @@ $row2 = mysqli_fetch_array($query2);
                         <div class="form-group">
                             <label for="" class="col-form-label text-success skillname">Objects</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opt3radio" value="1">
+                                <input class="form-check-input" type="radio" name="opt3radio" checked value="1">
                                 <label class="form-check-label">100-80</label>
                             </div>
 
@@ -267,7 +259,7 @@ $row2 = mysqli_fetch_array($query2);
                         <div class="form-group">
                             <label for="" class="col-form-label text-success skillname">Github Collaboration</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opt4radio" value="1">
+                                <input class="form-check-input" type="radio" name="opt4radio" checked value="1">
                                 <label class="form-check-label">100-80</label>
                             </div>
 
@@ -289,8 +281,7 @@ $row2 = mysqli_fetch_array($query2);
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="skill1SetSubmit" data-dismiss="modal">Submit</button>
                 </div>
             </div>
         </div>
@@ -323,10 +314,10 @@ $row2 = mysqli_fetch_array($query2);
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-3">
-                                <img src="assets/john-doe.jpg" alt="" class="uProfile-image img-responsive">
+                                <img src="assets/john-doe.jpg" alt="" class="uProfile-image img-responsive ">
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-9">
                                 <h3 class="uProfile-name"><?php echo $row['name'];?></h3>
@@ -336,30 +327,24 @@ $row2 = mysqli_fetch_array($query2);
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <div class="card bg-success text-white">
+                                <div class="card bg-orange text-white">
                                     <div class="card-body">
                                         <h5 class="card-title">Good At</h5>
                                         <div class="card-text">
-                                            <ul>
-                                                <li>Jquery</li>
-                                                <li>Alerts</li>
-                                                <li>DOM</li>
-                                                <li>Styling</li>
+                                            <ul id="goodAt">
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <div class="card bg-info text-white">
+                                <div class="card text-black">
                                     <div class="card-body">
                                         <h5 class="card-title">Help me Improve</h5>
                                         <div class="card-text">
-                                            <ul>
-                                                <li>Forms</li>
-                                                <li>Modals</li>
-                                                <li>Prototypes</li>
-                                                <li>Bootstrap</li>
+                                            <ul id="badAt">
+
                                             </ul>
                                         </div>
                                     </div>
@@ -367,28 +352,24 @@ $row2 = mysqli_fetch_array($query2);
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-3">
                                 <img src="assets/john-doe.jpg" alt="" class="uProfile-image img-responsive ">
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-9">
-                                <h3 class="uProfile-name">Jane Doe</h3>
-                                <h4 class="uProfile-passion">Software development</h4>
-                                <h4 class="uProfile-passion"> Music and Art</h4>
+                               <h3 class="uProfile-name hide_name"><?php echo $row2['name'];?></h3>
+                                <h4 class="uProfile-passion hide_name"><?php echo $row2['passion'];?></h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <div class="card">
+                                <div class="card btn-moringa">
                                     <div class="card-body">
                                         <h5 class="card-title">Good At</h5>
                                         <div class="card-text">
-                                            <ul>
-                                                <li>Forms</li>
-                                                <li>Modals</li>
-                                                <li>Prototypes</li>
-                                                <li>Bootstrap</li>
+                                            <ul id="pairgoodAt">
+
                                             </ul>
                                         </div>
 
@@ -396,15 +377,12 @@ $row2 = mysqli_fetch_array($query2);
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <div class="card">
+                                <div class="card text-black">
                                     <div class="card-body">
-                                        <h5 class="card-title">Help me Improve</h5>
+                                        <h5 class="card-title ">Help me Improve</h5>
                                         <div class="card-text">
-                                            <ul>
-                                                <li>Jquery</li>
-                                                <li>Alerts</li>
-                                                <li>DOM</li>
-                                                <li>Styling</li>
+                                            <ul id="pairbadAt">
+                                           
                                             </ul>
                                         </div>
                                     </div>
@@ -426,7 +404,10 @@ $row2 = mysqli_fetch_array($query2);
 
 
     <!-- start of javascript files -->
-   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://unpkg.com/popper.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
