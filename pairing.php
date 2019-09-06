@@ -112,6 +112,70 @@ $row2 = mysqli_fetch_array($query2);
         </div>
     </div>
     <!-- end of skillset modal1 -->
+    
+    <!-- edit profile modal -->
+
+    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfileTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileLongTitle">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <img src="assets/john-doe.jpg" class="rounded-circle mx-auto d-block" width="200px">
+                            </div>
+                        </div>
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-5 col-form-label form-control-label font-weight-bold">Name:</label>
+                                <div class="col-7">
+                                    <input class="form-control" type="text" value="John Doe">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-5 col-form-label form-control-label font-weight-bold">Class:</label>
+                                <div class="col-7">
+                                    <select class="form-control">
+                                        <option value="Pre-prep">Pre-prep</option>
+                                        <option value="Prep">MPFT-21</option>
+                                        <option value="Core">Core</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label
+                                    class="col-5 col-form-label form-control-label font-weight-bold">Password:</label>
+                                <div class="col-7">
+                                    <input type="password" class="form-control" value="******">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-5 col-form-label form-control-label font-weight-bold">Confirm
+                                    Password:</label>
+                                <div class="col-7">
+                                    <input type="password" class="form-control" value="******">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-orange" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-moringa">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
         <!-- start of skillset modal2 -->
         <div class="modal fade " id="skills-modal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
         aria-hidden="true">
