@@ -346,5 +346,25 @@ $("form#sighnup").hide(2500);
 
 
 });
+
+// Navbar Transition
+(function ($) {
+
+  var navbar = $('.navbar');
+  var lastScrollTop = 0;
+
+  $(window).scroll(function () {
+      var st = $(this).scrollTop();
+      if (st > lastScrollTop) {
+          navbar.removeClass('bg-light').addClass('visible shadow');
+      } 
+      else if(st < lastScrollTop && st < 200) {
+          navbar.removeClass('visible shadow').addClass('bg-light');
+      }
+      else {
+          navbar.removeClass('bg-light').addClass('visible shadow');
 }
+      lastScrollTop = st;
 });
+
+})(jQuery);
