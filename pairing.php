@@ -300,7 +300,28 @@ $row2 = mysqli_fetch_array($query2);
     <div class="container-fluid">
         <section id="pair-programmer">
             <div class="container jumbotron">
-            <a href="logout.php"><h4>LOGOUT</h4></a>
+                <div class="form-group" id="s_alert">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-6">
+                        <a href="index.php" class="icon-color text-orange" ><i class="fas fa-home fa-2x " id="hide_home"></i></a>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <ul class="nav float-right">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-orange meatball" data-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v fa-2x waves-effect"></i></a>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfile">Profile</a>
+                                    <a class="dropdown-item" href="logout.php">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
                         <div class="row">
