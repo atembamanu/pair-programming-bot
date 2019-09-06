@@ -68,11 +68,12 @@ if(isset($_SESSION['id'])){
                     </div>
                    
                     <div class="form-group">
-                        <label for="fileupload"> Select an image to upload</label>
-                        <input type="file" placeholder="Upload Your image" />
+                        <label for="fileupload" id="img_status"> Select profile image </label>
+                       <input type="file" name="image" id="image" />  
+             
                     </div>
                     <div class="form-group text-center">
-                        <button id="ulogin" class="btn btn-warning text-white">LOGIN INSTEAD</button>
+                        <button id="ulogin" class="btn bg-orange">LOGIN INSTEAD</button>
                         <button class="btn btn-moringa text-white" type="submit" name="register"
                             id="create_account">CONTINUE</button>
                     </div>
