@@ -262,4 +262,15 @@ $("form#sighnup").hide(2500);
     $("#enrollModal").modal('show');
     $("#loginModal").modal('hide');
   });
+
+  if (Cookies.get('pairingbot_remember_me') == null) {
+
+    $('#skills-modal').modal({
+                        backdrop: 'static',
+                        keyboard: true, 
+                        show: true
+                }, function(){
+                        Cookies.set('pairingbot_remember_me', 'pairs', { expires: 105, path: '/' });
+                }); 
+}
 });
