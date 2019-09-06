@@ -91,7 +91,8 @@ $("form#sighnup").hide(2500);
           email: email,
           passion: passion,
           uclass: uclass,
-          password: password
+          password: password,
+          image_name:image_name
         },
         success: function (data) {
           switch (data) {
