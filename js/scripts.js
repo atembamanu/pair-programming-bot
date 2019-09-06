@@ -29,7 +29,7 @@ $("form#sighnup").hide(2500);
       $('#mins').text(minutes);
       $('#secs').text(seconds);
     })
-    if (days == 0 && hours == 0 && minutes == 5 && seconds == 0) {
+    if (days === 0 && hours === 0 && minutes === 5 && seconds === 0) {
       $('#skillSetModal').modal('show');
     }
 
