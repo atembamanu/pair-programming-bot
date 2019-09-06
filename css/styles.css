@@ -1,0 +1,155 @@
+.btn-moringa {
+    background-color: #8e9847;
+    color: white;
+}
+
+.masthead {
+    padding-top: 10%;
+}
+
+#banner {
+    background-image: url("../assets/banner.png");
+    background-repeat: no-repeat;
+}
+
+.visible {
+    background-color: #8e9847;
+}
+
+.modal-dialog {
+    margin-right: 0;
+}
+
+.hide_name {
+    display: none;
+}
+
+#hide_home {
+    display: none;
+}
+
+#sighnup {
+    display: none;
+}
+
+.form-container {
+    padding: 20px;
+}
+
+#skilltest {
+    display: none;
+}
+
+.account {
+    margin: 50px;
+    padding: 30px;
+}
+
+.form-group {
+    padding-top: 10px;
+}
+
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.uProfile-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%
+}
+
+.uProfile-name {
+    color: #8e9847;
+    font-weight: bolder
+}
+
+.card-body {
+    font-size: 24px;
+}
+
+.card-title {
+    font-size: 26px;
+}
+
+#time {
+    padding-top: 100px;
+}
+
+button.text-white {
+    font-weight: bolder
+}
+
+.modal {
+    font-size: 20px;
+}
+
+.modal-footer>button {
+    text-transform: uppercase;
+    font-weight: bolder
+}
+
+#skillModelLabel {
+    font-size: 30px;
+}
+
+footer {
+    height: 50px;
+}
+
+.why-skills {
+    text-align: center;
+    width: 100%;
+}
+
+.bg-orange {
+    background-color: #fd8c25;
+    color: white;
+}
+
+.custom {
+    background-color: #fd8c25;
+    border-color: #fd8c25;
+    margin: 0;
+    padding: 12px 37px;
+    font-size: 17px;
+    border-radius: 0;
+    color: #fff;
+}
+
+.custom:hover {
+    background-color: #fd8c25;
+    border-color: #fd8c25;
+    color: #fff;
+}
+
+.custom:active {
+    background-color: #8e9847 !important;
+    border-color: #8e9847 1px solid !important;
+    color: #fff;
+}
+
+.text-orange {
+    color: #fd8c25;
+}
+
+.icon-color:hover {
+    color: #8e9847 !important;
+}
+
+.meatball:hover {
+    color: #8e9847;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #fff;
+    background-color: #8e9847;
+}
+
+/* Start of mediaquery */
+@media only screen and (max-width: 400px) {
+    #change_me {
+        display: none;
+    }
+}
