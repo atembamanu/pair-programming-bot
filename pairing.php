@@ -7,6 +7,12 @@ if(!isset($_SESSION['id'])){
 $sql = 'SELECT * FROM webappUsers WHERE webappUser_id = " '.$_SESSION['id'].'" ';
 $query = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($query);
+
+
+
+$sql2 = 'SELECT * FROM webappUsers WHERE webappUser_id != " '.$_SESSION['id'].'" ORDER BY RAND() LIMIT 1 ';
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
