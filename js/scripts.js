@@ -324,5 +324,27 @@ $("form#sighnup").hide(2500);
         };
     
     $('#skill1SetSubmit').click(function(){
+        $('#s_alert').html('<div class="alert alert-success msucess-alert" role="alert">' +
+                '<h5><strong>Your first skill test was successfully submited. Wait as we analyze your responses.</strong></h5>' +
+                '</div>');
+              $(".msucess-alert").delay(6500).slideUp('slow', function () {
+                
+                    $('#s_alert').html('<div class="alert alert-warning malert" role="alert">' +
+                '<h5><strong>Done analyzing..Fetching Your Pair...Done </br>Happy Pairing Session.</strong></h5>' +
+                '</div>');
+                $(".malert").delay(2500).slideUp('slow', function () {
+                $('#s_alert').hide('slow', function () {
+                    $('.hide_name').show('slow');
+                  populateSkillSet();
+                  
+                });
+
+              });
+        
+    });
+    });
+
+
+});
 }
 });
